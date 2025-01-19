@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+  </head>
+  <body style="background-color: silver">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><strong>H M S</strong></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-target="#Mainmenu"
+          data-bs-toggle="collapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="Mainmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a (click)="logout()" class="nav-link">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <!-- Back Button -->
+      <button class="btn btn-secondary mb-4" onclick="history.back()">
+        <i class="bi bi-arrow-return-left"></i> Go Back
+      </button>
+
+      <!-- Alerts -->
+      <div
+        *ngIf="errorMessage"
+        class="alert alert-danger alert-dismissible fade show"
+        role="alert"
+      >
+        {{ errorMessage }}
+        <button
+          type="button"
+          class="btn-close"
+          (click)="errorMessage = ''"
+        ></button>
+      </div>
+
+      <div
+        *ngIf="successMessage"
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+      >
+        {{ successMessage }}
+        <button
+          type="button"
+          class="btn-close"
+          (click)="successMessage = ''"
+        ></button>
+      </div>
+
+      <!-- Form Card -->
+      <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+          <h4 class="mb-0">Update User Details</h4>
+        </div>
+        <div class="card-body">
+          <!-- Loading Spinner -->
+          <div *ngIf="isLoading" class="text-center my-4">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+
+          <form (ngSubmit)="onSubmit()" #updateForm="ngForm" *ngIf="!isLoading">
+            <div class="row">
+              <!-- Name Field -->
+              <div class="col-md-6 mb-3">
+                <label for="userName" class="form-label">User Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userName"
+                  name="userName"
+                  [(ngModel)]="user.userName"
+                  required
+                  placeholder="Enter user name"
+                />
+              </div>
+
+              <!-- Email Field -->
+              <div class="col-md-6 mb-3">
+                <label for="userEmail" class="form-label">Email Address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="userEmail"
+                  name="userEmail"
+                  [(ngModel)]="user.userEmail"
+                  required
+                  placeholder="Enter email address"
+                />
+              </div>
+
+              <!-- Contact Field -->
+              <div class="col-md-6 mb-3">
+                <label for="userPhno" class="form-label">Contact Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userPhno"
+                  name="userPhno"
+                  [(ngModel)]="user.userPhno"
+                  required
+                  placeholder="Enter contact number"
+                />
+              </div>
+
+              <!-- User Type Field -->
+              <div class="col-md-6 mb-3">
+                <label for="userType" class="form-label">User Type</label>
+                <select
+                  class="form-select"
+                  id="userType"
+                  name="userType"
+                  [(ngModel)]="user.userType"
+                  required
+                >
+                  <option value="">Select user type</option>
+                  <option value="ADMIN">Admin</option>
+                  <option value="CUSTOMER">Customer</option>
+                </select>
+              </div>
+
+              <!-- Address Field -->
+              <div class="col-12 mb-3">
+                <label for="userAddress" class="form-label">Address</label>
+                <textarea
+                  class="form-control"
+                  id="userAddress"
+                  name="userAddress"
+                  [(ngModel)]="user.userAddress"
+                  rows="3"
+                  required
+                  placeholder="Enter address"
+                ></textarea>
+              </div>
+
+              <!-- Password Field -->
+              <div class="col-12 mb-3">
+                <label for="userPassword" class="form-label">Password</label>
+                <div class="input-group">
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    class="form-control"
+                    id="userPassword"
+                    name="userPassword"
+                    [(ngModel)]="user.userPassword"
+                    required
+                    placeholder="Enter password"
+                  />
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    (click)="showPassword = !showPassword"
+                  >
+                    <i
+                      class="bi"
+                      [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="d-flex justify-content-end gap-2 mt-4">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="history.back()"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="updateForm.invalid || isSubmitDisabled()"
+              >
+                Update User
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

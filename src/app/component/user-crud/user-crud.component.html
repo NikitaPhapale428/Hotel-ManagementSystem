@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light-gray">
+    <!-- Navbar -->
+    <nav class="main-nav">
+      <div class="nav-container">
+        <h1 class="nav-title">HMS</h1>
+        <button class="btn-logout" (click)="logout()">
+          <i class="fas fa-sign-out-alt me-2"></i>Logout
+        </button>
+      </div>
+    </nav>
+
+    <div class="main-container">
+      <!-- Header Section -->
+      <div class="header-section">
+        <button class="btn-back" onclick="history.back()">
+          <i class="fas fa-arrow-left me-2"></i>Back
+        </button>
+        <h2 class="page-title">User Management</h2>
+        <div></div>
+      </div>
+
+      <!-- Table Card -->
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="main-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <!-- <th>Password</th> -->
+                <th class="text-center">Type</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="
+                  let u of user
+                    | paginate : { itemsPerPage: count, currentPage: p }
+                "
+              >
+                <td>{{ u.userId }}</td>
+                <td>{{ u.userName }}</td>
+                <td>{{ u.userAddress }}</td>
+                <td>{{ u.userPhno }}</td>
+                <td>
+                  <span class="truncate" title="{{ u.userEmail }}">
+                    {{ u.userEmail }}
+                  </span>
+                </td>
+                <!-- <td>
+                  <span class="truncate" title="{{ u.userPassword }}">
+                    {{ u.userPassword }}
+                  </span>
+                </td> -->
+                <td class="text-center">
+                  <span
+                    class="user-badge"
+                    [ngClass]="
+                      u.userType === 'ADMIN' ? 'badge-admin' : 'badge-customer'
+                    "
+                  >
+                    {{ u.userType }}
+                  </span>
+                </td>
+                <td class="text-end">
+                  <div class="action-buttons">
+                    <button
+                      (click)="navigateToUpdate(u.userId)"
+                      class="btn-action btn-edit"
+                      title="Edit user"
+                    >
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button
+                      (click)="deleteUser(u.userId)"
+                      class="btn-action btn-delete"
+                      title="Delete user"
+                      onclick="return confirm('Are you sure you want to delete this user?')"
+                    >
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+          <small class="page-info">Showing page {{ p }} of {{ count }}</small>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

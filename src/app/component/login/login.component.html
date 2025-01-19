@@ -1,0 +1,199 @@
+<!-- <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+    User Name:<input type="text" name="un" [(ngModel)]="un" /><br /><br />
+    Password:<input type="text" name="pwd" [(ngModel)]="pwd" /><br /><br />
+    <input type="submit" value="login" class="btn btn-primary btn-md" />
+  </form> -->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <div class="container-fluid">
+    <strong><a class="navbar-brand" routerLink="">H M S</a></strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse show" id="navbarNavDropdown">
+      <ul class="navbar-nav mb-2 mt-1 ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink=""
+            >Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a routerLink="/register" class="nav-link">Register</a>
+        </li>
+        <!-- <li class="nav-item" [routerLinkActive]="['active']"><a [routerLink]="['login']" class="nav-link">Login</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- login.component.html -->
+<div class="login-wrapper">
+  <!-- Main Login Section -->
+  <div class="login-container">
+    <div class="container">
+      <div class="row align-items-center justify-content-center min-vh-100">
+        <div class="col-lg-10">
+          <div class="card login-card">
+            <div class="row g-0">
+              <!-- Left Image Section -->
+              <div class="col-lg-6 d-none d-lg-block">
+                <div class="login-image">
+                  <img
+                    src="../../assets/hotel.jpg"
+                    alt="login"
+                    class="img-fluid h-100 w-100 object-fit-cover"
+                  />
+                  <div class="image-overlay"></div>
+                  <div class="welcome-text">
+                    <h2 class="animate__animated animate__fadeInUp">
+                      Welcome Back!
+                    </h2>
+                    <p
+                      class="animate__animated animate__fadeInUp animate__delay-1s"
+                    >
+                      Sign in to continue your journey with HMS
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Form Section -->
+              <div class="col-lg-6">
+                <div class="login-form-container">
+                  <div class="text-center mb-4">
+                    <i class="fas fa-hotel hotel-icon"></i>
+                    <h3 class="mt-3">Hotel Management System</h3>
+                    <p class="text-muted">Sign in to your account</p>
+                  </div>
+
+                  <div
+                    class="alert alert-danger alert-dismissible fade show"
+                    role="alert"
+                    *ngIf="errorMessage"
+                  >
+                    {{ errorMessage }}
+                    <button
+                      type="button"
+                      class="btn-close"
+                      (click)="errorMessage = ''"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <form
+                    #loginForm="ngForm"
+                    (ngSubmit)="login(loginForm.value)"
+                    novalidate
+                  >
+                    <!-- Username Input -->
+                    <div class="form-floating mb-4">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="username"
+                        name="un"
+                        [(ngModel)]="un"
+                        required
+                        minlength="3"
+                        maxlength="20"
+                        #name="ngModel"
+                        [class.is-invalid]="name.invalid && name.touched"
+                        placeholder="Username"
+                        [disabled]="isLoading"
+                      />
+                      <label for="username">Username</label>
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="name.invalid && name.touched"
+                      >
+                        <span *ngIf="name.errors?.['required']"
+                          >Username is required</span
+                        >
+                        <span *ngIf="name.errors?.['minlength']"
+                          >Username must be at least 3 characters</span
+                        >
+                      </div>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="form-floating mb-4">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="pwd"
+                        [(ngModel)]="pwd"
+                        #password="ngModel"
+                        required
+                        minlength="3"
+                        maxlength="10"
+                        [class.is-invalid]="
+                          password.invalid && password.touched
+                        "
+                        placeholder="Password"
+                        [disabled]="isLoading"
+                      />
+                      <label for="password">Password</label>
+                      <div
+                        class="invalid-feedback"
+                        *ngIf="password.invalid && password.touched"
+                      >
+                        <span *ngIf="password.errors?.['required']"
+                          >Password is required</span
+                        >
+                        <span *ngIf="password.errors?.['minlength']"
+                          >Password must be at least 3 characters</span
+                        >
+                      </div>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button
+                      type="submit"
+                      class="btn btn-primary w-100 py-3 mb-4"
+                      [disabled]="loginForm.invalid || isLoading"
+                    >
+                      <span
+                        *ngIf="isLoading"
+                        class="spinner-border spinner-border-sm me-2"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      {{ isLoading ? "Signing In..." : "Sign In" }}
+                    </button>
+
+                    <!-- Registration Link -->
+                    <div class="text-center">
+                      <p class="mb-4">
+                        Don't have an account?
+                        <a
+                          routerLink="/register"
+                          class="text-primary text-decoration-none"
+                          >Register here</a
+                        >
+                      </p>
+                      <a
+                        routerLink="/termcond"
+                        class="text-muted text-decoration-none small"
+                      >
+                        Terms and Conditions
+                      </a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,212 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+/>
+<button class="btn btn-secondary" onclick="history.back()">
+  <i class="bi bi-arrow-return-left"></i> Go Back
+</button>
+<body style="background-color: silver">
+  <!-- contact-us.component.html -->
+  <div class="contact-wrapper">
+    <div class="container mt-4">
+      <div class="contact-container">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold">Contact Us</h2>
+          <div class="title-underline mx-auto"></div>
+          <p class="text-muted mt-3">
+            We'd love to hear from you. Please fill out this form.
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <!-- Success Message -->
+            <div
+              *ngIf="sendthemail"
+              class="alert alert-success alert-dismissible fade show mb-4"
+              role="alert"
+            >
+              {{ smessage }}
+              <button
+                type="button"
+                class="btn-close"
+                (click)="closeAlert()"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <!-- Error Message -->
+            <div
+              *ngIf="errorMessage"
+              class="alert alert-danger alert-dismissible fade show mb-4"
+              role="alert"
+            >
+              {{ errorMessage }}
+              <button
+                type="button"
+                class="btn-close"
+                (click)="closeAlert()"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
+              <!-- Name Row -->
+              <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [class.is-invalid]="
+                        firstName.invalid && firstName.touched
+                      "
+                      id="firstName"
+                      name="first_name"
+                      #firstName="ngModel"
+                      required
+                      [(ngModel)]="formData.first_name"
+                      placeholder="John"
+                    />
+                    <label for="firstName">First Name</label>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="firstName.invalid && firstName.touched"
+                    >
+                      First name is required
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [class.is-invalid]="lastName.invalid && lastName.touched"
+                      id="lastName"
+                      name="last_name"
+                      #lastName="ngModel"
+                      required
+                      [(ngModel)]="formData.last_name"
+                      placeholder="Doe"
+                    />
+                    <label for="lastName">Last Name</label>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="lastName.invalid && lastName.touched"
+                    >
+                      Last name is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Info Row -->
+              <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="email"
+                      class="form-control"
+                      [class.is-invalid]="email.invalid && email.touched"
+                      id="email"
+                      name="email"
+                      #email="ngModel"
+                      required
+                      email
+                      [(ngModel)]="formData.email"
+                      placeholder="name@example.com"
+                    />
+                    <label for="email">Email Address</label>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="email.invalid && email.touched"
+                    >
+                      <span *ngIf="email.errors?.['required']"
+                        >Email is required</span
+                      >
+                      <span *ngIf="email.errors?.['email']"
+                        >Please enter a valid email</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="tel"
+                      class="form-control"
+                      [class.is-invalid]="phone.invalid && phone.touched"
+                      id="phone"
+                      name="mobile_number"
+                      #phone="ngModel"
+                      required
+                      pattern="[0-9]{10}"
+                      [(ngModel)]="formData.mobile_number"
+                      placeholder="1234567890"
+                    />
+                    <label for="phone">Mobile Number</label>
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="phone.invalid && phone.touched"
+                    >
+                      <span *ngIf="phone.errors?.['required']"
+                        >Phone number is required</span
+                      >
+                      <span *ngIf="phone.errors?.['pattern']"
+                        >Please enter a valid 10-digit number</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="form-floating mb-4">
+                <textarea
+                  class="form-control"
+                  [class.is-invalid]="message.invalid && message.touched"
+                  id="message"
+                  name="message"
+                  #message="ngModel"
+                  required
+                  [(ngModel)]="formData.message"
+                  placeholder="Your message"
+                  style="height: 150px"
+                ></textarea>
+                <label for="message">Your Message</label>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="message.invalid && message.touched"
+                >
+                  Message is required
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg px-5"
+                  [disabled]="contactForm.invalid || isSubmitting"
+                >
+                  <span *ngIf="!isSubmitting">
+                    <i class="bi bi-send me-2"></i>Send Message
+                  </span>
+                  <span *ngIf="isSubmitting">
+                    <span
+                      class="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Sending...
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

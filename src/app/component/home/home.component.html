@@ -1,0 +1,149 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <div class="container-fluid">
+    <strong><a class="navbar-brand" routerLink="">H M S</a></strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a style="color: silver" href="aboutus">About</a>
+    |||
+    <a style="color: silver" href="contactus">Contact</a>
+    <div class="collapse navbar-collapse show" id="navbarNavDropdown">
+      <ul class="navbar-nav mb-2 mt-1 ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink=""
+            >Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a [routerLink]="['register']" class="nav-link">Register</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a [routerLink]="['login']" class="nav-link">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <!-- Hero Section -->
+  <section>
+    <img
+      src="../../assets/lobby.jpg"
+      class="hero-image"
+      alt="Luxury Hotel Room"
+    />
+  </section>
+
+  <!-- Description Section -->
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="text-section">
+        <p class="description">
+          With the HMS room booking app, you can book and manage your stay on
+          the go. Get the best deals and confirmed booking in three simple steps
+          on the best hotel booking app in India. Just select your destination,
+          choose from the best reviewed hotels and pay. That's it. You will get
+          the online booking voucher immediately. Just one tip, do not forget to
+          check out our 'App exclusive' offers for lowest prices!
+        </p>
+        <div class="why-section">
+          <h2>Why HMS?</h2>
+          <p>
+            We are the fastest growing budget hotels brand in India with over
+            10,000+ rooms in 600+ hotels across 50+ cities. All HMS hotels are
+            centrally located close to business districts and major
+            transportation hubs, hence, offering easy connectivity at all times.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <router-outlet></router-outlet> -->
+  <!-- Second Image Section -->
+  <section>
+    <img
+      src="../../assets/lobby1.jpg"
+      class="feature-image"
+      alt="Hotel Feature"
+    />
+  </section>
+</main>
+
+<!-- <div class="container">
+      <div class="row">
+          <div class="col-8 mt-5 mb-2 mx-auto">
+              <p class="text-center text-capitalize text-playfair">With the H M S room booking app, you can book and manage your stay on the go. Get the best deals and confirmed booking in three simple steps on the best hotel booking app in India. Just select your destination, choose from the best reviewed hotels and pay. That’s it. You will get the online booking voucher immediately. Just one tip, do not forget to check out our ‘App exclusive’ offers for lowest prices!</p>
+              <p class="text-center text-capitalize text-playfair">Why H M S?<br><br>
+                  We are the fastest growing budget hotels brand in India with over 10,000+ rooms in 600+ hotels across 50+ cities. All FabHotels are centrally located close to business districts and major transportation hubs, hence, offering easy connectivity at all times.</p>
+          </div>
+      </div>
+    </div>
+    <br><br> -->
+
+<!-- <div class="icons-container">
+  
+    <div class="icons">
+        <img src="../../assets/icon-1.jpg" alt="">
+        <div class="info">
+            <h3>Luxury Hotels</h3>
+            <span> All over the World </span>
+        </div>
+    </div>
+  
+    <div class="icons">
+        <img src="../../assets/icon-2.png" alt="">
+        <div class="info">
+            <h3>Budget Friendly</h3>
+            <span>We choose the best that suits your budget</span>
+        </div>
+    </div>
+  
+    <div class="icons">
+        <img src="../../assets/icon-3.png" alt="">
+        <div class="info">
+            <h3>Coupons & offers</h3>
+            <span>On all your bookings</span>
+        </div>
+    </div>
+  </div>
+  <br>
+  
+  <div class="icons-container">
+  
+    <div class="col" style="margin-left: 20%;">
+    <div class="icon">
+        <img src="../../assets/icon-4.png" alt="">
+        <div class="info">
+            <h3>Secure payments</h3>
+            <span>protected by stripe</span>
+        </div>
+    </div></div>
+    <div class="col" style="margin-right: 10%;">
+    <div class="icon">
+      <img style="height: 80px; width: 70px;" src="../../assets/icon-5.png" alt="">
+      <div class="info">
+          <h3>Prime Locations</h3>
+          <span> Close to airport or business hub</span>
+      </div>
+  </div>
+  </div>
+  
+  </div>
+  <br> -->
+
+<!--Google map-->
+<!-- <div id="map-container" class="z-depth-1-half map-container" style="height: 500px">
+    <iframe src="https://maps.google.com/maps?q=banglorehotels&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+      style="border:0" allowfullscreen></iframe>
+  </div> -->
+<app-footer></app-footer>

@@ -1,0 +1,181 @@
+/* footer.component.css */
+.footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding-top: 3rem;
+  font-family: "Inter", sans-serif;
+}
+
+/* Brand Section */
+.footer-brand h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #3498db, #2ecc71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.copyright {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Contact Section */
+.footer-contact h4,
+.footer-social h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+  color: #fff;
+}
+
+.contact-item i {
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.contact-item:hover i {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+}
+
+.social-link.facebook:hover {
+  background: #1877f2;
+}
+
+.social-link.instagram:hover {
+  background: #e4405f;
+}
+
+.social-link.linkedin:hover {
+  background: #0077b5;
+}
+
+.social-link.twitter:hover {
+  background: #1da1f2;
+}
+
+.social-link.youtube:hover {
+  background: #ff0000;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.footer-bottom a {
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+}
+
+/* Animations */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fas.fa-heart {
+  animation: heartbeat 1s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 2rem;
+  }
+
+  .footer-brand,
+  .footer-contact,
+  .footer-social {
+    text-align: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+}
+
+/* Hover Effects */
+.footer a {
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Additional Styles */
+.footer p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.border-top {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}

@@ -1,0 +1,81 @@
+/* Custom styles */
+body {
+  background-color: #f0f2f5 !important;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Card styles */
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table styles */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  font-weight: 500;
+  border-bottom: none;
+}
+
+.table td {
+  border-color: #f0f2f5;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Badge styles */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+/* Button styles */
+.btn-outline-dark {
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-outline-dark:hover {
+  background-color: #212529;
+  color: white;
+}
+
+/* Pagination customization */
+.custom-pagination ::ng-deep .ngx-pagination {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination .current {
+  background: #212529 !important;
+  border-radius: 4px;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination a:hover {
+  background: #e9ecef;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.75rem;
+  }
+
+  .badge {
+    padding: 0.4em 0.8em;
+  }
+}

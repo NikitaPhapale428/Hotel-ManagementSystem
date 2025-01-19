@@ -1,0 +1,106 @@
+/* Base styles */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Card styles */
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table styles */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  font-weight: 500;
+  border-bottom: none;
+}
+
+.table td {
+  font-size: 0.9375rem;
+  border-color: #f0f2f5;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Button styles */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  transition: all 0.2s;
+}
+
+.btn-light {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.btn-light:hover {
+  background: #e9ecef;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.6rem;
+}
+
+.btn-outline-dark {
+  border-width: 1.5px;
+}
+
+.btn-primary {
+  background: #0d6efd;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0b5ed7;
+  transform: translateY(-1px);
+}
+
+/* Icons */
+.bi {
+  font-size: 1.1rem;
+}
+
+/* Pagination customization */
+.custom-pagination ::ng-deep .ngx-pagination {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination .current {
+  background: #212529 !important;
+  border-radius: 4px;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination a:hover {
+  background: #e9ecef;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .btn {
+    font-size: 0.875rem;
+  }
+
+  .table td,
+  .table th {
+    padding: 0.75rem;
+  }
+
+  .d-flex.justify-content-between {
+    gap: 0.5rem;
+  }
+}

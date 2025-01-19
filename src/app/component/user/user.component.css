@@ -1,0 +1,154 @@
+/* Base styles */
+body {
+  background-color: #f5f7fa !important;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Navbar customization */
+.navbar {
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+/* Search bar */
+.input-group {
+  background: white;
+  border-radius: 8px;
+}
+
+.input-group .form-control::placeholder {
+  color: #a0aec0;
+}
+
+.input-group .btn-primary {
+  border-radius: 8px;
+}
+
+/* Hotel cards */
+.hotel-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+}
+
+.hotel-image-wrapper {
+  position: relative;
+  padding-top: 66.67%; /* 3:2 aspect ratio */
+  overflow: hidden;
+}
+
+.hotel-image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-favorite {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.btn-favorite i {
+  color: #dc3545;
+}
+
+.btn-favorite.active {
+  background-color: #dc3545;
+}
+
+.btn-favorite.active i {
+  color: white;
+}
+
+/* Typography */
+h2 {
+  color: #2d3748;
+}
+
+.card-title {
+  color: #1a202c;
+}
+
+/* Button styles */
+.btn {
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3b82f6;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Icons */
+.fas {
+  font-size: 1rem;
+}
+
+/* Price and rating styles */
+.text-success {
+  color: #059669 !important;
+}
+
+.text-warning {
+  color: #f59e0b !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .hotel-card {
+    margin-bottom: 1rem;
+  }
+
+  .btn-favorite {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+}
+
+/* Cursor pointer for clickable elements */
+.cursor-pointer {
+  cursor: pointer;
+}

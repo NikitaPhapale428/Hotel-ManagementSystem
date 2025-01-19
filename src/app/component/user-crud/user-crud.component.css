@@ -1,0 +1,203 @@
+/* Base Styles */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  background-color: #f0f2f5;
+  margin: 0;
+}
+
+/* Navigation */
+.main-nav {
+  background-color: #212529;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+}
+
+.nav-title {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.btn-logout {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Container */
+.main-container {
+  padding: 1rem 1.5rem;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.page-title {
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.btn-back {
+  background: #212529;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-back:hover {
+  transform: translateY(-1px);
+}
+
+/* Table Styles */
+.table-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.main-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.main-table th {
+  background: #212529;
+  color: white;
+  font-weight: 500;
+  padding: 0.8rem 1rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.main-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+}
+
+.main-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Utility Classes */
+.truncate {
+  display: inline-block;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* User Type Badges */
+.user-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.badge-admin {
+  background: #0d6efd;
+  color: white;
+}
+
+.badge-customer {
+  background: #6c757d;
+  color: white;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.btn-action {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.btn-edit {
+  border-color: #0d6efd;
+  color: #0d6efd;
+}
+
+.btn-edit:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+.btn-delete {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.btn-delete:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #f0f0f0;
+}
+
+.page-info {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+/* Pagination Component Customization */
+:host ::ng-deep .ngx-pagination {
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+:host ::ng-deep .ngx-pagination .current {
+  background: #212529 !important;
+  border-radius: 4px;
+}
+
+:host ::ng-deep .ngx-pagination a:hover {
+  background: #e9ecef;
+  border-radius: 4px;
+}
